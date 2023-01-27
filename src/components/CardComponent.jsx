@@ -1,17 +1,17 @@
 import { Button, Card } from "react-bootstrap";
 
-const CardComponent = ({ title, img, text, agregarAlCarrito }) => {
+const CardComponent = ({ product, agregarAlCarrito }) => {
     //title, img y text son las props que recibirá de ProductsContainer
     return (
-        <Card style={{ width: "14rem" }}>
-            <Card.Img variant="top" src={img} />
+        <Card style={{ width: "12rem" }}>
+            <Card.Img variant="top" src={product.thumbnail} />
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>{text}</Card.Text>
+                <Card.Title>{product.title} - <b>$ {product.price}</b></Card.Title>
+                <Card.Text>{product.description}</Card.Text>
                 <Button
                     variant="primary"
                     onClick={(event) => {
-                        agregarAlCarrito(event, title);
+                        agregarAlCarrito(event, product);
                     }}
                 >
                     Agregar al carrito
